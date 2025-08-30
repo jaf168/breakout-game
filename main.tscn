@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c283wqt2gffrk"]
+
+[ext_resource type="Script" uid="uid://c44hf6pls2g2o" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://drco367fnvmpa" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://h72wg4u50023" path="res://ball.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://xy6xvj0u0do0" path="res://brick.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cypw5tjn7hvnc" path="res://wall.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(240, 620)
+
+[node name="Ball" parent="." instance=ExtResource("3_1bvp3")]
+position = Vector2(237, 345)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+offset_right = 480.0
+offset_bottom = 720.0
+
+[node name="Brick" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(114, 124)
+
+[node name="Brick2" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(395, 124)
+
+[node name="Brick3" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(254, 124)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top" parent="Walls" instance=ExtResource("5_lquwl")]
+position = Vector2(664, 3)
+rotation = 1.5708
+scale = Vector2(1, 100)
+
+[node name="Left" parent="Walls" instance=ExtResource("5_lquwl")]
+scale = Vector2(1, 80)
+
+[node name="Bottom" parent="Walls" instance=ExtResource("5_lquwl")]
+position = Vector2(239, 719)
+scale = Vector2(250, 1)
+
+[node name="Right" parent="Walls" instance=ExtResource("5_lquwl")]
+position = Vector2(478, 0)
+scale = Vector2(1, 80)
